@@ -178,7 +178,7 @@ impl Display for CompatDeserializationError {
 
 impl error::Error for CompatDeserializationError {
     fn description(&self) -> &str {
-        self.0.description()
+        "description is deprecated, use Display!"
     }
 }
 

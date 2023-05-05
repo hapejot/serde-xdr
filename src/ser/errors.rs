@@ -115,9 +115,15 @@ impl Display for CompatSerializationError {
 }
 
 impl error::Error for CompatSerializationError {
+
     fn description(&self) -> &str {
-        self.0.description()
+        "description() is deprecated; use Display"
     }
+
+    fn cause(&self) -> Option<&dyn error::Error> {
+        self.source()
+    }
+
 }
 
 impl ser::Error for CompatSerializationError {

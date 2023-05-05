@@ -110,11 +110,11 @@ where
             bail!(SerializationError::StringIsTooLong { string });
         }
 
-        if !value.is_ascii() {
-            let string = value.to_string();
+        // if !value.is_ascii() {
+        //     let string = value.to_string();
 
-            bail!(SerializationError::StringIsNotAscii { string });
-        }
+        //     bail!(SerializationError::StringIsNotAscii { string });
+        // }
 
         self.serialize_bytes(value.as_bytes())
             .map_err(|error| Self::serialize_failure("string", value, error))
